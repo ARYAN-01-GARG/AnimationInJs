@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    /* Prevent scrollbars */
+}
+
+#gameCanvas {
+    display: block;
+    /* Remove the default inline display */
+    background-color: black;
+    /* Set background color */
+}
