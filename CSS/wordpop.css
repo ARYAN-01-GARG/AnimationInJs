@@ -5,18 +5,43 @@
 }
 
 
+
+
 body{
     height: 100vh;
     font-size: 1.4rem;
     font-family: 'Arial', sans-serif;
+    background: linear-gradient(90deg, rgb(226, 0, 185), #00074c);
+    background-image: url('../IMG/wordpop-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     flex-flow: column nowrap;
     overflow: hidden;
 }
 
+.score_area{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    padding: 1rem 2rem;
+    color: white;
+}
+
+#wordInput{
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    outline: none;
+    border: 5px double #003788;
+    background-color: #001636;
+    color: rgb(255, 255, 255);
+}
+
 
 header{
-    background-color: #333;
     color: white;
     padding: 1rem 4rem 0.5rem 2rem;
     display: flex;
@@ -36,7 +61,6 @@ main{
 }
 
 footer{
-    background-color: #333;
     color: white;
     display: flex;
     justify-content: center;
@@ -65,3 +89,12 @@ footer{
 .back:hover, .start:hover{
     background-color: #003366;
 }
+
+canvas {
+    background-color: rgba(195, 195, 195, 0.325);
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    margin: auto;
+}
+
+

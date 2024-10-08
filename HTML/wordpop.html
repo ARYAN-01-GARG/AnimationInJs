@@ -9,13 +9,17 @@
 <body>
     <header>
         <h1>Word Pop</h1>
-        <div class="score">score : 0</div>
+        <div class="score_area">
+            <div id="remainingWords" >Word Remaining : 0</div>
+            <div id="score">score : 0</div>
+        </div>
     </header>
     <main>
-        <canvas class="board"></canvas>
+        <canvas id="canvas"></canvas>
     </main>
     <footer>
-        <button class="start">Start</button>
+        <button class="start" id="button1">Start</button>
+        <input type="text" id="wordInput" placeholder="Type a word" autocomplete="off"/>
         <button class="back"><a href="../index.html" >Back to home</a></button>
     </footer>
     <script src="../JS/wordpop.js"></script>
