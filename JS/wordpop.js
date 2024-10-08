@@ -1,4 +1,3 @@
-// Get canvas and context
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth - 200;
@@ -13,6 +12,7 @@ const scoreDisplay = document.getElementById("score");
 const remainingWordsDisplay = document.getElementById("remainingWords");
 
 let spheres = [];
+let colors = ["pink", "green", "orange", "skyblue", "#faa", "blue"];
 let gameInterval;
 let spawnInterval;
 let spawnSpeed = 3000;
@@ -29,11 +29,12 @@ class Sphere {
     this.vy = (Math.random() - 0.5) * 4;
     this.isPopping = false;
     this.popFrame = 0;
+    this.color = colors[Math.floor(Math.random() * colors.length)];
   }
 
   calculateRadius(word) {
     const baseRadius = 30;
-    const extraRadius = word.length * 2; // Adjust multiplier as needed
+    const extraRadius = word.length * 2;
     return baseRadius + extraRadius;
   }
 
@@ -41,14 +42,14 @@ class Sphere {
     if (this.isPopping) {
       this.popFrame++;
       if (this.popFrame > 10) {
-        return; // Skip drawing if pop animation is done
+        return;
       }
     }
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     ctx.fillStyle = this.isPopping
       ? "rgba(255, 0, 0, 0.7)"
-      : "rgba(0, 150, 255, 0.7)";
+      : this.color;
     ctx.fill();
     ctx.stroke();
     ctx.closePath();
@@ -61,13 +62,12 @@ class Sphere {
 
   update() {
     if (this.isPopping) {
-      this.radius -= 2; // Shrink the sphere during pop animation
+      this.radius -= 2;
       return;
     }
     this.x += this.vx;
     this.y += this.vy;
 
-    // Bounce off walls
     if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
       this.vx = -this.vx;
     }
@@ -75,7 +75,6 @@ class Sphere {
       this.vy = -this.vy;
     }
 
-    // Bounce off other spheres
     for (let sphere of spheres) {
       if (sphere !== this && this.isCollidingWith(sphere)) {
         this.resolveCollision(sphere);
@@ -95,21 +94,16 @@ class Sphere {
     const dy = this.y - other.y;
     const distance = Math.sqrt(dx * dx + dy * dy);
 
-    // Normalized direction vector
     const nx = dx / distance;
     const ny = dy / distance;
 
-    // Relative velocity
     const vx = this.vx - other.vx;
     const vy = this.vy - other.vy;
 
-    // Dot product of relative velocity and normalized direction
     const dotProduct = vx * nx + vy * ny;
 
-    // Calculate the impulse scalar
     const impulse = (2 * dotProduct) / (this.radius + other.radius);
 
-    // Apply impulse to the velocities
     this.vx -= impulse * other.radius * nx;
     this.vy -= impulse * other.radius * ny;
     other.vx += impulse * this.radius * nx;
@@ -211,7 +205,7 @@ const handleInput = (event) => {
       if (score % 10 === 0) {
         increaseSpawnSpeed();
       }
-      event.target.value = ""; // Clear the input field
+      event.target.value = "";
       break;
     }
   }
@@ -239,7 +233,7 @@ const updateRemainingWords = () => {
 
 const increaseSpawnSpeed = () => {
   clearInterval(spawnInterval);
-  spawnSpeed = Math.max(500, spawnSpeed - 500); // Decrease spawn speed, minimum 500ms
+  spawnSpeed = Math.max(500, spawnSpeed - 500);
   spawnInterval = setInterval(spawnSphere, spawnSpeed);
 };
 
