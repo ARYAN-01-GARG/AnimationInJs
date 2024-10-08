@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nabla&family=Press+Start+2P&family=Sixtyfour+Convergence&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -5,23 +6,31 @@
 }
 
 body {
+    font-family: "Press Start 2P" ,sans-serif;
+    background: linear-gradient(90deg, rgb(226, 0, 185), #00074c);
+    background-image: url('/IMG/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100vh;
-    font-size: 1.4rem;
-    font-family: 'Arial', sans-serif;
+    font-size: 1.3rem;
+    color: red;
     display: flex;
     flex-flow: column nowrap;
     overflow: hidden;
 }
 
+
+
 header{
-    background-color: #333;
+    margin: 0 2rem;
+    line-height: 1.5;
+    font-size: 2rem;
     color: white;
-    padding: 1rem;
+    padding: 4rem 0;
     text-align: center;
 }
 
 footer{
-    background-color: #333;
     color: white;
     padding: 0.5rem;
     text-align: center;
