@@ -3,139 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-    div{
-        width: 200px;
-        height: 200px;
-        background-color: red;
-        position: absolute;
-        perspective: 1000px;
-        transform-style: preserve-3d;
-        transform: rotateX(45deg) rotateY(45deg);
-    }
-</style>
-<body>
-    <div>
-        1
-    </div>
-</body>
-</html>
-
-
-<!-- <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full-Screen Canvas Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Game-o-Topia</title>
+    <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
-    <canvas id="gameCanvas"></canvas>
+    <header>
+        <h1>
+            Welcome to Land of Games
+        </h1>
+    </header>
+    <main>
+        <div>
+            <div></div>
+        </div>
+    </main>
+    <footer>
+        <p>
+            &copy; 2024 Game-o-Topia
+        </p>
+    </footer>
     <script src="script.js"></script>
 </body>
-</html> -->
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rubik's Cube with JS</title>
-</head>
-<body>
-    <div id="rubiks-cube"></div>
-
-    <script>
-        // Create the 3D Rubik's Cube using only JS
-        const cubeContainer = document.getElementById('rubiks-cube');
-        cubeContainer.style.width = '300px';
-        cubeContainer.style.height = '300px';
-        cubeContainer.style.position = 'relative';
-        cubeContainer.style.perspective = '1000px';
-
-        // Constants for positioning and rotation
-        const CUBE_SIZE = 100; // Size of each cubie
-        const CUBE_OFFSET = CUBE_SIZE + 10; // Offset to space out the cubies
-
-        // Colors for the faces
-        const COLORS = ['red', 'green', 'blue', 'yellow', 'white', 'orange'];
-
-        // Function to create a single cubie with 6 faces
-        function createCubie(x, y, z) {
-            const cubie = document.createElement('div');
-            cubie.className = 'cubie';
-            cubie.style.width = `${CUBE_SIZE}px`;
-            cubie.style.height = `${CUBE_SIZE}px`;
-            cubie.style.position = 'absolute';
-            cubie.style.transformStyle = 'preserve-3d';
-            cubie.style.transform = `translate3d(${x * CUBE_OFFSET}px, ${y * CUBE_OFFSET}px, ${z * CUBE_OFFSET}px)`;
-
-            // Create 6 faces for each cubie
-            const faceTransforms = [
-                `rotateY(0deg) translateZ(${CUBE_SIZE / 2}px)`,   // Front
-                `rotateY(180deg) translateZ(${CUBE_SIZE / 2}px)`, // Back
-                `rotateY(90deg) translateZ(${CUBE_SIZE / 2}px)`,  // Right
-                `rotateY(-90deg) translateZ(${CUBE_SIZE / 2}px)`, // Left
-                `rotateX(90deg) translateZ(${CUBE_SIZE / 2}px)`,  // Top
-                `rotateX(-90deg) translateZ(${CUBE_SIZE / 2}px)`  // Bottom
-            ];
-
-            for (let i = 0; i < 6; i++) {
-                const face = document.createElement('div');
-                face.style.width = `${CUBE_SIZE}px`;
-                face.style.height = `${CUBE_SIZE}px`;
-                face.style.background = COLORS[i];
-                face.style.position = 'absolute';
-                face.style.transform = faceTransforms[i];
-                cubie.appendChild(face);
-            }
-            return cubie;
-        }
-
-        // Create a 3x3x3 cube structure
-        for (let x = -1; x <= 1; x++) {
-            for (let y = -1; y <= 1; y++) {
-                for (let z = -1; z <= 1; z++) {
-                    const cubie = createCubie(x, y, z);
-                    cubeContainer.appendChild(cubie);
-                }
-            }
-        }
-
-        // Apply initial rotation to the whole cube container
-        cubeContainer.style.transform = 'rotateX(-30deg) rotateY(-30deg)';
-
-        // Implementing rotation logic
-        let rotationX = -30;
-        let rotationY = -30;
-
-        // Handle mouse drag to rotate the cube
-        let isDragging = false;
-        let previousMousePosition = { x: 0, y: 0 };
-
-        document.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            previousMousePosition = { x: e.clientX, y: e.clientY };
-        });
-
-        document.addEventListener('mousemove', (e) => {
-            if (isDragging) {
-                const deltaX = e.clientX - previousMousePosition.x;
-                const deltaY = e.clientY - previousMousePosition.y;
-                rotationY += deltaX * 0.5;
-                rotationX -= deltaY * 0.5;
-                cubeContainer.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
-                previousMousePosition = { x: e.clientX, y: e.clientY };
-            }
-        });
-
-        document.addEventListener('mouseup', () => {
-            isDragging = false;
-        });
-    </script>
-</body>
-</html> -->
-
-<!-- <!DOCTYPE html> -->
+</html>
